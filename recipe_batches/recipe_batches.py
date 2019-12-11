@@ -3,7 +3,16 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  
+  # check if recipe ingredients are avaialable
+  ing_set = set(ingredients.keys())
+  rec_set = set(recipe.keys())
+  if rec_set.issubset(ing_set) == False: 
+    return 0
+
+  batches_dict = {key: ingredients[key]//recipe[key] for key in recipe.keys() & ingredients.keys()}
+
+  return min(batches_dict.values())
 
 
 if __name__ == '__main__':
