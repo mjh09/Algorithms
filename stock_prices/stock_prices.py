@@ -2,8 +2,31 @@
 
 import argparse
 
+#function to fin the max difference in an arrar of numbers
+
 def find_max_profit(prices):
-  pass
+  cur_min = prices[0]
+  max_prof = 0
+
+  for i in range(len(prices)):
+    
+    if i == 0:
+      pass
+    
+    
+    if i == 1:      #base case to handle the requirement of making one sale - even if unprofitable
+      max_prof = prices[i] - cur_min
+
+    
+    if prices[i] - cur_min > max_prof:
+      max_prof = prices[i] - cur_min
+    
+    
+    if prices[i] < cur_min:
+      cur_min = prices[i]
+    
+    
+  return max_prof
 
 
 if __name__ == '__main__':
